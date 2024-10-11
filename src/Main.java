@@ -1,11 +1,12 @@
 import Task1.*;
-import Task2.Task2;
+import Task2.*;
+import Task3.*;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        task2Test();
+        task3Test();
     }
     private static void task1Test(){
         Student student1 = new Student("Jane Doe", 23);
@@ -29,5 +30,12 @@ public class Main {
         task2.printParameters(new Object[]{student, s, new ArrayList<>(), i , c});
         System.out.println("через масив varargs");
         task2.printParameters1(student, s, new ArrayList<>(), i);
+    }
+    private static void task3Test(){
+        OuterClass outerClass = new OuterClass();// Оскільки звичайний внутрішній клас прив'язаний до екземпляра - створюється екземпляр
+        OuterClass.InnerClass inner = outerClass.new InnerClass();
+        OuterClass.StaticInnerClass staticInner = new OuterClass.StaticInnerClass();
+        inner.print();
+        staticInner.print();
     }
 }
