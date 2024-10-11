@@ -2,12 +2,13 @@ import Task1.*;
 import Task2.*;
 import Task3.*;
 import Task4.*;
+import Task6.*;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        task4Test();
+        task6Test();
     }
     private static void task1Test(){
         Student student1 = new Student("Jane Doe", 23);
@@ -42,6 +43,49 @@ public class Main {
     private static void task4Test(){
         OuterClassForLocal outerClassForLocal = new OuterClassForLocal();// Оскільки звичайний внутрішній клас прив'язаний до екземпляра - створюється екземпляр
         outerClassForLocal.method();
+    }
+    private static void task6Test(){
+        //Створення анонімних класів на основі інтерфейсу
+        Note noteDo = new Note(){
+            @Override
+            public void sound(){
+                System.out.println("Doooo");
+            }
+        };
+        Note noteRe = new Note(){
+            @Override
+            public void sound(){
+                System.out.println("Reeeee");
+            }
+        };
+        Note noteMi = new Note(){
+            @Override
+            public void sound(){
+                System.out.println("Miiii");
+            }
+        };
+        Note noteFa = () -> System.out.println("Faaaaaa");
+        Note noteSol = () -> System.out.println("Sool");
+
+        //Демонстрація поліморфізму, усі різні змінні типу Note реалізують різні звуки
+        noteDo.sound();
+        noteRe.sound();
+        noteMi.sound();
+        noteFa.sound();
+        noteSol.sound();
+        // створення анонімних класів, викликавши методи без визначення змінної
+        new Note(){
+            @Override
+            public void sound(){
+                System.out.println("Lyaaaaaa");
+            }
+        }.sound();
+        new Note(){
+            @Override
+            public void sound(){
+                System.out.println("Siiiiiii");
+            }
+        }.sound();
 
 
     }
