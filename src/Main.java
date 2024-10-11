@@ -1,12 +1,13 @@
 import Task1.*;
 import Task2.*;
 import Task3.*;
+import Task4.*;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        task3Test();
+        task4Test();
     }
     private static void task1Test(){
         Student student1 = new Student("Jane Doe", 23);
@@ -37,5 +38,11 @@ public class Main {
         OuterClass.StaticInnerClass staticInner = new OuterClass.StaticInnerClass();
         inner.print();
         staticInner.print();
+    }
+    private static void task4Test(){
+        OuterClassForLocal outerClassForLocal = new OuterClassForLocal();// Оскільки звичайний внутрішній клас прив'язаний до екземпляра - створюється екземпляр
+        outerClassForLocal.method();
+
+
     }
 }
