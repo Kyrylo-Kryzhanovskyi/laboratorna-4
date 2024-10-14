@@ -2,13 +2,15 @@ import Task1.*;
 import Task2.*;
 import Task3.*;
 import Task4.*;
+import Task5.StreamXOREncryption;
 import Task6.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        task6Test();
+        task5Test();
     }
     private static void task1Test(){
         Student student1 = new Student("Jane Doe", 23);
@@ -43,6 +45,15 @@ public class Main {
     private static void task4Test(){
         OuterClassForLocal outerClassForLocal = new OuterClassForLocal();// Оскільки звичайний внутрішній клас прив'язаний до екземпляра - створюється екземпляр
         outerClassForLocal.method();
+    }
+    private static void task5Test(){
+        StreamXOREncryption streamXOREncryption = new StreamXOREncryption();
+        String plainText = "Hello World!";
+        String key = "12345";
+        streamXOREncryption.setKey(key.getBytes());
+        byte [] cipherText = streamXOREncryption.encryption(plainText.getBytes());
+        System.out.println(new String(cipherText));
+        System.out.println(new String(streamXOREncryption.decryption(cipherText)));
     }
     private static void task6Test(){
         //Створення анонімних класів на основі інтерфейсу
